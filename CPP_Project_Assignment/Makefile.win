@@ -1,0 +1,37 @@
+# Project: b231210041_project_assignment
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o Mekan.o Oturan.o DosyaIslemleri.o
+LINKOBJ  = main.o Mekan.o Oturan.o DosyaIslemleri.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Project_Assignment.exe
+CXXFLAGS = $(CXXINCS) -std=gnu++11 -g3 -std=c++14
+CFLAGS   = $(INCS) -std=gnu++11 -g3 -std=c++14
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Mekan.o: Mekan.cpp
+	$(CPP) -c Mekan.cpp -o Mekan.o $(CXXFLAGS)
+
+Oturan.o: Oturan.cpp
+	$(CPP) -c Oturan.cpp -o Oturan.o $(CXXFLAGS)
+
+DosyaIslemleri.o: DosyaIslemleri.cpp
+	$(CPP) -c DosyaIslemleri.cpp -o DosyaIslemleri.o $(CXXFLAGS)
